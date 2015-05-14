@@ -130,6 +130,8 @@ var update = function(originalJson,config){
         var buildLine = function(y,l1,text,textNum){
             var maxLength = 100;
             l1 = l1 || 0;
+            if(l1 > maxLength * 1.2) l1 = maxLength * 1.2;
+            if(l1 < 0) l1 = 0;
             sidebarGroup.append("text").text(0).attr("class","sidebar_text")
                 .attr('transform',"translate(0,"+y+")")
                 .transition().tween("text", function(){
